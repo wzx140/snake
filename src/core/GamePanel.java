@@ -239,7 +239,7 @@ public class GamePanel extends GUIPanel {
      */
     private void printHOrF(base.Point point) {
         //displayPanel.getGraphics().fillOval(point.getX() * xOffset, point.getY() * yOffset, xOffset, yOffset);
-        displayPanel.getGraphics().drawImage(new ImageIcon("src/picture/head.jpg").getImage(), point.getX() * xOffset, point.getY() * yOffset, xOffset, yOffset, null);
+        displayPanel.getGraphics().drawImage(new ImageIcon(GamePanel.class.getResource("/picture/head.jpg")).getImage(), point.getX() * xOffset, point.getY() * yOffset, xOffset, yOffset, null);
 
     }
 
@@ -249,7 +249,7 @@ public class GamePanel extends GUIPanel {
     //print dead point
     private void printDeadPt(Point point) {
         //displayPanel.getGraphics().fillRect(point.getX() * xOffset, point.getY() * yOffset, xOffset, yOffset);
-        displayPanel.getGraphics().drawImage(new ImageIcon("src/picture/dead.jpg").getImage(), point.getX() * xOffset, point.getY() * yOffset, xOffset, yOffset, null);
+        displayPanel.getGraphics().drawImage(new ImageIcon(GamePanel.class.getResource("/picture/dead.jpg")).getImage(), point.getX() * xOffset, point.getY() * yOffset, xOffset, yOffset, null);
     }
 
     //clear screen
