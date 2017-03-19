@@ -246,25 +246,25 @@ public class Snake {
         return bodys.get(0);
     }
 
-    public static void main(String[] args) throws CloneNotSupportedException {
-        Snake snake = new Snake(20, 20);
-        snake.addHead(new Point(snake.getHead().getX() - 1, snake.getHead().getY()));
-        snake.addHead(new Point(snake.getHead().getX() - 1, snake.getHead().getY()));
+//    public static void main(String[] args) throws CloneNotSupportedException {
+//        Snake snake = new Snake(20, 20);
+//        snake.addHead(new Point(snake.getHead().getX() - 1, snake.getHead().getY()));
+//        snake.addHead(new Point(snake.getHead().getX() - 1, snake.getHead().getY()));
 //        for (int i=0;i<10;i++) {
-        ArrayList<Point> temp = snake.getBodys();
-        for (Point point : temp) {
-            System.out.println(point.getX() + " " + point.getY());
-        }
-        System.out.println(" ");
-        snake.isBorder(1);
-        temp = snake.getBodys();
-        for (Point point : temp) {
-            System.out.println(point.getX() + " " + point.getY());
-        }
-        System.out.println(" ");
-        //snake.move(4);
+//        ArrayList<Point> temp = snake.getBodys();
+//        for (Point point : temp) {
+//            System.out.println(point.getX() + " " + point.getY());
+//        }
+//        System.out.println(" ");
+//        snake.isBorder(1);
+//        temp = snake.getBodys();
+//        for (Point point : temp) {
+//            System.out.println(point.getX() + " " + point.getY());
+//        }
+//        System.out.println(" ");
+//        //snake.move(4);
 //    }
-
-    }
+//
+//    }
 }
 
