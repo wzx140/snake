@@ -12,7 +12,7 @@ public class Begin {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                JFrame frame = new JFrame("贪吃蛇");
+                JFrame frame = new JFrame("snake");
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setContentPane(new GamePanel(20,20).mainPanel());
                 frame.pack();
