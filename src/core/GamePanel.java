@@ -23,12 +23,30 @@ public class GamePanel extends GUIPanel {
     private boolean gamePause;
     private int row;
     private int column;
-    private int xOffset;  //point x (relative to column) offset
-    private int yOffset;  //above
-    private Timer snakeTimer; //timely move snake
-    private int dir;  //last direction
-    private int pauseTime; //the time you have paused
-    private Timer pauseTimer; //set pauseTime
+    /**
+     * point x (relative to column) offset
+     */
+    private int xOffset;
+    /**
+     *above
+     */
+    private int yOffset;
+    /**
+     *timely move snake
+     */
+    private Timer snakeTimer;
+    /**
+     *last direction
+     */
+    private int dir;
+    /**
+     *the time you have paused
+     */
+    private int pauseTime;
+    /**
+     *set pauseTime
+     */
+    private Timer pauseTimer;
 
     public GamePanel(int row, int column) {
         initListen();
@@ -70,7 +88,10 @@ public class GamePanel extends GUIPanel {
             }
         });
     }
-    //init snake,deadPoint,foodPoint and last direction only at beginning
+
+    /**
+     * init snake,deadPoint,foodPoint and last direction only at beginning
+     */
     private void initElements() {
         snake = new Snake(row, column);
         deadPoint = InitPoint.initPoint(row, column, snake.getBodys());
@@ -78,7 +99,9 @@ public class GamePanel extends GUIPanel {
         dir = snake.initDir();
     }
 
-    //init listeners
+    /**
+     * init listeners
+     */
     private void initListen() {
         startBton.addActionListener(new ActionListener() {
             @Override
@@ -184,6 +207,7 @@ public class GamePanel extends GUIPanel {
     /**
      * judge if next(dir) head reach food or dead
      * and handle the situation
+     * @see Snake
      */
     private void handleMove(int dir) throws CloneNotSupportedException {
         Point tempHead = snake.nextHead(dir);
@@ -213,13 +237,20 @@ public class GamePanel extends GUIPanel {
         displayPanel.getGraphics().drawString("YOUR SCORE: "+snake.size(),150,200);
         displayPanel.getGraphics().drawString("YOU Pause : "+ pauseTime +"s",150,300);
     }
-    //produce deadPoint and foodPoint only when snake eat a foodPoint
+
+    /**
+     * produce deadPoint and foodPoint only when snake eat a foodPoint
+     */
+
     private void produceElements() {
         deadPoint = InitPoint.initPoint(row, column, snake.getBodys());
         foodPoint = InitPoint.initPoint(row, column, snake.getBodys(), deadPoint);
     }
 
-    //print snake ,food and dead point
+    /**
+     * print snake ,food and dead point
+     */
+
     private void print() {
         cls();
         ArrayList<Point> temp = snake.getBodys();
@@ -246,13 +277,18 @@ public class GamePanel extends GUIPanel {
     private void printBody(base.Point point) {
         displayPanel.getGraphics().fillOval(point.getX() * xOffset, point.getY() * yOffset, xOffset, yOffset);
     }
-    //print dead point
+
+    /**
+     * print dead point
+     */
     private void printDeadPt(Point point) {
         //displayPanel.getGraphics().fillRect(point.getX() * xOffset, point.getY() * yOffset, xOffset, yOffset);
         displayPanel.getGraphics().drawImage(new ImageIcon(GamePanel.class.getResource("/picture/dead.jpg")).getImage(), point.getX() * xOffset, point.getY() * yOffset, xOffset, yOffset, null);
     }
 
-    //clear screen
+    /**
+     * clear screen
+     */
     private void cls() {
         displayPanel.getGraphics().clearRect(0, 0, 500, 500);
     }

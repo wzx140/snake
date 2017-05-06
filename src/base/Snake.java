@@ -41,9 +41,8 @@ public class Snake {
     }
 
     /**
-     * snake moves by dir
-     * dir:1 ->up,2 ->left,3 ->down,4 ->right
-     * protected by readAndWriteLock
+     * snake moves by dir protected by readAndWriteLock
+     * @param dir 1 ->up,2 ->left,3 ->down,4 ->right
      */
     public void move(int dir) {
         lock.writeLock().lock();
@@ -96,7 +95,10 @@ public class Snake {
         return bodys.size();
     }
 
-    //judge that the dir is legal
+    /**
+     * judge that the dir is legal
+     * @param dir 1 ->up,2 ->left,3 ->down,4 ->right
+     */
     public boolean canMove(int dir) {
         if (!isAlive()) {
             return false;
@@ -128,7 +130,10 @@ public class Snake {
         return true;
     }
 
-    //judge that next(dir) head is beyond border
+    /**
+     * judge that next(dir) head is beyond border
+     * @param dir 1 ->up,2 ->left,3 ->down,4 ->right
+     */
     public boolean isBorder(int dir) throws CloneNotSupportedException {
         if (!isAlive()) {
             return true;
@@ -182,9 +187,10 @@ public class Snake {
     }
 
     /**
-     * return next(dir) head point
-     * if dir can not recognize
+     * @return next(dir) head point.
+     * if dir can not recognize,
      * return null
+     *
      */
     public Point nextHead(int dir) throws CloneNotSupportedException {
         Point tempHead = (Point) getHead().clone();
@@ -208,7 +214,10 @@ public class Snake {
 
     }
 
-    //return the origin direction
+    /**
+     * @return the origin direction
+     */
+
     public int initDir() {
         if (getHead().getX() - 1 == getBodys().get(1).getX()) {
             return 4;
@@ -224,7 +233,7 @@ public class Snake {
 
     /**
      * base on the pattern(0,1,2,3)
-     * return the first bodys
+     * @return the first bodys
      * else return null
      */
     private Point initBody(int pattern) {

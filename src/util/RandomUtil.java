@@ -8,8 +8,8 @@ import java.util.Arrays;
 public class RandomUtil {
 
     /**
-     * produce a random int from begin to end
-     * included begin and end
+     * produce a random int from begin to end,
+     * included begin and end.
      * end should bigger than begin
      */
     public static int restrictedRandom(int begin, int end) {
@@ -21,7 +21,7 @@ public class RandomUtil {
     }
 
     /**
-     * like above method
+     * @see #restrictedRandom(int, int)
      * except this will overlook some int
      */
     public static int restrictedRandom(int begin, int end,Integer[] overlooked) {

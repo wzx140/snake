@@ -10,7 +10,10 @@ import java.util.ArrayList;
 public class InitPoint {
 
     /**
-     * init a random point
+     * @param row the row of game panel
+     * @param column the column of game panel
+     * @param bodys the body of a snake
+     * @return a random point
      * within the row and the column
      * except bodys' point
      */
@@ -35,8 +38,8 @@ public class InitPoint {
     }
 
     /**
-     * function like above
      * except otherPoint
+     * @see #initPoint(int, int, ArrayList)
      */
     public static Point initPoint(int row, int column, ArrayList<Point> bodys,Point otherPoint) {
         boolean flag = false;
